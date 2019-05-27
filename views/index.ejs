@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sentiments</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <style>
+        .positive
+        {
+            color:green;
+        }
+        .negative
+        {
+            color:red;
+        }
+         body
+         {
+            background-color: dodgerblue;
+         }
+        .jumbotron
+        {
+            margin-top:2em;
+        }
+        input[type="text"]
+        {
+            width:30%;
+        }
+        b
+        {
+            color: red;
+        }
+        li
+        {
+            color:darkblue;
+            font-size: 20px;
+
+        }
+    </style>
+</head>
+<body>
+   <div class="jumbotron container text-center">
+       <h2> COUNTRY FINDER</h2>
+
+       <form action="/" method="get">
+          <div class="form-group">
+              <label for="email"><h3>Enter a country name:</h3></label>
+              <input type="text" class="text" name="country">
+          </div>
+
+          <button type="submit" class="btn btn-default">Search</button>
+      </form>
+  </div>
+  <div class="jumbotron container text-center">
+    <%if(data.map!==undefined){%>
+
+      <%data.map(({name,timezones,capital,region,population,nativeName,currencies,languages ,area})=>{%>
+
+         <u><h2><%= name %></h2></u>
+          <li> <b>Timezone </b>:<%= timezones || ' - ' %></li>
+          <li> <b>Capital</b> :<%= capital || ' - '%></li>
+          <li> <b>Region </b>:<%= region || ' - '%></li>
+          <li> <b>Population</b> :<%= population +' people' || ' - '%></li>
+          <li> <b>Native name </b>:<%= nativeName || ' - '%></li>
+          <li> <b>Currency</b> :<%= currencies || ' - '%></li>
+          <li> <b>Languages </b>:<%= languages || ' - '%></li>
+          <li> <b>area </b>:<%= area/1000000 +' million  km2'|| ' - '%></li>
+
+          <hr>
+
+          <%})}%>
+
+
+
+
+        <p>:-)</p>
+
+
+  </div>
+</body>
+</html>
